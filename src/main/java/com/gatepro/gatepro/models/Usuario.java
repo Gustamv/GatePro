@@ -28,6 +28,9 @@ public class Usuario {
    @Column(nullable = true)
    private String cargo;
 
+   @Column(nullable = false, unique = true)
+   private String email;
+
    @OneToMany(mappedBy = "usuario")
    private List<Evento> eventos;
 
@@ -37,11 +40,12 @@ public class Usuario {
    public Usuario() {
    }
 
-   public Usuario(String nome, String matricula, String senha, String cargo) {
+   public Usuario(String nome, String matricula, String senha, String cargo, String email) {
       this.nome = nome;
       this.matricula = matricula;
       this.senha = senha;
       this.cargo = cargo;
+      this.email = email;
    }
 
    public Long getId() {
@@ -82,6 +86,14 @@ public class Usuario {
 
    public void setCargo(String cargo) {
       this.cargo = cargo;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
    }
 
    public List<Evento> getEventos() {

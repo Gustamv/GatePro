@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Excluir</title>
+</head>
+<body>
+    <h1>Excluir</h1>
+    <p>Tem certeza que deseja excluir o usuário com ID ${usuario.id}?</p>
+    <form th:action="@{/usuarios/{id}(id=${usuario.id})}" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Sim, excluir" />
+        <a th:href="@{/usuarios}">Não, cancelar</a>
+    </form>
+</body>
+</html>
