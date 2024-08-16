@@ -3,6 +3,7 @@ package com.gatepro.gatepro.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.gatepro.gatepro.models.Usuario;
@@ -31,7 +32,6 @@ public class UsuarioService {
         if (usuarioExistente != null) {
             usuarioExistente.setNome(usuario.getNome());
             usuarioExistente.setEmail(usuario.getEmail());
-            // atualize outros campos se necessário
             return save(usuarioExistente);
         } else {
             throw new RuntimeException("Usuário não encontrado");
@@ -40,5 +40,10 @@ public class UsuarioService {
 
     public void delete(Long id) {
         usuarioRepository.deleteById(id);
+    }
+
+    public Usuario findById(Sort by) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
 }
